@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     external fun stringFromJNI(): String
 
+    // 静态变量
     companion object {
         init {
             System.loadLibrary("native-lib")
