@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity() {
 
     external fun stringFromJNI(): String
 
+    /**
+     *  在Native中声明方法
+     */
+    external fun jniVariableStateMent()
+
     // 静态变量
     companion object {
         init {
