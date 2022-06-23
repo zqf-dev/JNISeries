@@ -15,7 +15,6 @@ Java_com_zqf_jniseries_MainActivity_stringFromJNI(
 extern "C" JNIEXPORT void JNICALL
 Java_com_zqf_jniseries_MainActivity_jniVariableStateMent(JNIEnv *env, jobject thiz) {
     // 方法编写
-
 }
 
 extern "C"

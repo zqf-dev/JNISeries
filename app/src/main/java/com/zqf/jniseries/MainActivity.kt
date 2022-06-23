@@ -2,6 +2,7 @@ package com.zqf.jniseries
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     fun fun1click(view: View) {
         binding.sampleText.text = stringFromJNI()
+
     }
 
     fun fun2click(view: View) {
@@ -51,4 +53,5 @@ class MainActivity : AppCompatActivity() {
 
     //native 调java 函数
     external fun stringFromJNI3()
+
 }

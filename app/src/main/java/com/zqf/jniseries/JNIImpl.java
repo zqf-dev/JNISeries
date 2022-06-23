@@ -3,13 +3,13 @@ package com.zqf.jniseries;
 public class JNIImpl {
 
     static {
-        System.loadLibrary("bridge");
+        System.load("D:\\opensource_workspace\\JNISeries\\app\\src\\main\\java\\demo.dll");
     }
 
-    public native int add(int x, int y);
+    public static native int add(int x, int y);
 
     public static void main(String[] args) {
         JNIImpl jniImpl = new JNIImpl();
-        System.out.println("native C++: >> " + jniImpl.add(1, 2));
+        System.out.printf("%d\n", jniImpl.add(10, 2));
     }
 }
