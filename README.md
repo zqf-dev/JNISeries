@@ -73,3 +73,8 @@ Java_com_zqf_jnitest_MainActivity_stringFromJNI(JNIEnv *env, jobject /* this */)
 - **jclass     定义native函数的Java类 
   jobject   定义native函数的Java类的实例**
 
+### CMake语法
+
+- 添加源文件或库 **add_library(x y z)**
+
+- 链接 target_link_libraries
