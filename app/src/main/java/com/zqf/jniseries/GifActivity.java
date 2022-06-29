@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class GifActivity extends AppCompatActivity {
 
     static {
-
+        System.loadLibrary("native-lib");
     }
 
     @Override
