@@ -11,6 +11,10 @@
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__);
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__);
 
+extern "C" {
+int main();
+}
+
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_zqf_jniseries_MainActivity_stringFromJNI(JNIEnv *env, jobject /* this */) {
     std::string hello = "Hello from C++";
@@ -143,4 +147,37 @@ Java_com_zqf_jniseries_MainActivity_dataTypeToNative(JNIEnv *env, jobject thiz, 
     env->DeleteLocalRef(userCls);
     // 回收
     env->DeleteLocalRef(user);
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_zqf_jniseries_MainActivity_threadHandle(JNIEnv *env, jobject thiz) {
+
+    jclass cls = env->GetObjectClass(thiz);
+    jfieldID jcount = env->GetFieldID(cls, "count", "I");
+
+    if (env->MonitorEnter(thiz) != JNI_OK) {
+        LOGE("%s: MonitorEnter() failed", __FUNCTION__)
+    }
+
+    /** synchronized block */
+    int n_count = env->GetIntField(thiz, jcount);
+    n_count++;
+    LOGI("count:>> %d", n_count)
+    env->SetIntField(thiz, jcount, n_count);
+
+    if (env->ExceptionOccurred()) {
+        LOGE("ExceptionOccurred()...")
+        if (env->MonitorExit(thiz) != JNI_OK) {
+            LOGE("%s: MonitorExit() failed", __FUNCTION__)
+        }
+    }
+    if (env->MonitorEnter(thiz) != JNI_OK) {
+        LOGE("%s: MonitorEnter() failed", __FUNCTION__);
+    }
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_zqf_jniseries_MainActivity_testCmake(JNIEnv *env, jobject thiz) {
+//    LOGD("main---->: %d", main())
 }
