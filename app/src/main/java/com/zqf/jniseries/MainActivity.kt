@@ -1,11 +1,9 @@
 package com.zqf.jniseries
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.zqf.jniseries.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +43,24 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Native调Java的函数了", Toast.LENGTH_SHORT).show()
     }
 
+    fun fun4click(view: android.view.View) {
+        dataTypeToNative(
+            true,
+            1,
+            2.toChar(),
+            3.toShort(),
+            3,
+            4L,
+            5.0f,
+            6.60,
+            "Hello",
+            intArrayOf(1, 2, 3),
+            arrayOf<String>("哈哈", "走你", "测试"),
+            booleanArrayOf(true, false),
+            User(20220630, "张三", 20, true)
+        )
+    }
+
     //java 调 native 函数
     external fun stringFromJNI(): String
 
@@ -54,4 +70,20 @@ class MainActivity : AppCompatActivity() {
     //native 调java 函数
     external fun stringFromJNI3()
 
+    //java 传递各种数据类型到native
+    external fun dataTypeToNative(
+        bl: Boolean,
+        bt: Byte,
+        c: Char,
+        s: Short,
+        i: Int,
+        l: Long,
+        f: Float,
+        d: Double,
+        str: String,
+        intArray: IntArray,
+        strArray: Array<String>,
+        booleanArray: BooleanArray,
+        user: User,
+    )
 }

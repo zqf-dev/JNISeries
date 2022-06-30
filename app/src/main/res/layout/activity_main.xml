@@ -18,23 +18,31 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:onClick="fun1click"
-        android:textAllCaps="false"
-        android:text="Java 调 Native " />
+        android:text="Java 调 Native "
+        android:textAllCaps="false" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:onClick="fun2click"
-        android:textAllCaps="false"
-        android:text="Native 调 Java变量" />
+        android:text="Native 调 Java变量"
+        android:textAllCaps="false" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:onClick="fun3click"
-        android:textAllCaps="false"
-        android:text="Native 调 Java方法" />
+        android:text="Native 调 Java方法"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="fun4click"
+        android:text="Java 传递不同数据类型到 Native"
+        android:textAllCaps="false" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
