@@ -1,6 +1,7 @@
 package com.zqf.jniseries
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     //静态方法 类似java 的 static{}
     companion object {
         init {
+            // System.loadLibrary("Test")
             System.loadLibrary("native-lib")
         }
     }
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Native调Java的函数了", Toast.LENGTH_SHORT).show()
     }
 
-    fun fun4click(view: android.view.View) {
+    fun fun4click(view: View) {
         dataTypeToNative(
             true,
             1,
@@ -59,6 +61,23 @@ class MainActivity : AppCompatActivity() {
             booleanArrayOf(true, false),
             User(20220630, "张三", 20, true)
         )
+    }
+
+    private var count: Int = 0
+    fun fun5click(view: View) {
+        for (i in 1..10) {
+            Thread {
+                countNum()
+                threadHandle()
+            }.start()
+        }
+    }
+
+    private fun countNum() {
+        synchronized(this) {
+            count++
+            Log.e("Java", "count:>> $count")
+        }
     }
 
     //java 调 native 函数
@@ -86,4 +105,9 @@ class MainActivity : AppCompatActivity() {
         booleanArray: BooleanArray,
         user: User,
     )
+
+    //JNI线程操作
+    external fun threadHandle()
+
+    external fun testCmake()
 }

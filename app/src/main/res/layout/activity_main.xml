@@ -45,4 +45,12 @@
         android:text="Java 传递不同数据类型到 Native"
         android:textAllCaps="false" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="fun5click"
+        android:text="JNI线程操作"
+        android:textAllCaps="false" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -6,7 +6,6 @@ plugins {
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
-
     defaultConfig {
         applicationId "com.zqf.jniseries"
         minSdkVersion 21
@@ -19,10 +18,10 @@ android {
                 cppFlags ''
             }
         }
-        //指定只编译v7a版的so文件
-//        ndk {
-//            abiFilters 'armeabi-v7a'
-//        }
+        //指定只编译v7a版的so文件，否则默认的可是4个平台
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
 
     buildTypes {
