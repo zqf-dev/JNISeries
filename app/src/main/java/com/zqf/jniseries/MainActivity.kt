@@ -1,11 +1,13 @@
 package com.zqf.jniseries
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.zqf.jniseries.databinding.ActivityMainBinding
+import com.zqf.jniseries.gif.GifActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -78,6 +80,10 @@ class MainActivity : AppCompatActivity() {
             count++
             Log.e("Java", "count:>> $count")
         }
+    }
+
+    fun fun6click(view: View) {
+        startActivity(Intent(this, GifActivity::class.java))
     }
 
     //java 调 native 函数
