@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             intArrayOf(1, 2, 3),
             arrayOf<String>("哈哈", "走你", "测试"),
             booleanArrayOf(true, false),
-            User(20220630, "张三", 20, true)
+            User(20220720, "张三", 28, true)
         )
     }
 
