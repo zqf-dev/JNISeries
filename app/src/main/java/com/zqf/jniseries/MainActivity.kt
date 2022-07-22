@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             6.60,
             "Hello",
             intArrayOf(1, 2, 3),
-            arrayOf<String>("哈哈", "走你", "测试"),
+            arrayOf<String>("NDK", "MyNDKLearn", "NDKTest"),
             booleanArrayOf(true, false),
             User(20220720, "张三", 28, true)
         )
